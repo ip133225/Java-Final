@@ -12,34 +12,34 @@ public class Determine
 	
 	public static boolean weapon(int weapon)
 	{
-		boolean doesHaveWeapon = false;
+		boolean hasWeapon = false;
 		if(weapon == 1)
-			doesHaveWeapon = true;
-		return doesHaveWeapon;
+			hasWeapon = true;
+		return hasWeapon;
 	}
 	
 	public static boolean food(int food)
 	{
-		boolean doesHaveFood = true;
+		boolean hasFood = true;
 		if(food == 0)
-			doesHaveFood = false;
-		return doesHaveFood;
+			hasFood = false;
+		return hasFood;
 	}
 	
 	public static boolean vehicle(int vehicle)
 	{
-		boolean doesHaveVehicle = false;
+		boolean hasVehicle = false;
 		if(vehicle == 1)
-			doesHaveVehicle = true;
-		return doesHaveVehicle;
+			hasVehicle = true;
+		return hasVehicle;
 	}
 	
 	public static boolean survivors(int survivors)
 	{
-		boolean doesHaveSurvivors = false;
+		boolean hasSurvivors = false;
 		if(survivors == 1)
-			doesHaveSurvivors = true;
-		return doesHaveSurvivors;
+			hasSurvivors = true;
+		return hasSurvivors;
 	}
 	
 	public static boolean location(int location)
