@@ -11,11 +11,15 @@ import javax.swing.JOptionPane;
 public class firstClass 
 {
 
+	private static String replay;
 	private static int weapon, food, vehicle, survivors, home;
 	
 	public static void main(String[] args) 
 	{
-		
+		do
+		{
+			
+		} while(replay == "Yes");
 	}
 	
 	public static boolean successGen()
@@ -66,8 +70,18 @@ public class firstClass
 		JOptionPane.showMessageDialog(null, "Congratulations! You survived the four days required for help to arrive. You win!");
 		if(vehicle == 0 && food == 0 && weapon == 0)
 			JOptionPane.showMessageDialog(null, "You survived with no weapon, vehicle, or extra food. Well done.");
-		else if(vehicle == 1)
-			JOptionPane.showMessageDialog(null, )
+	}
+	
+	public static void loseMessage()
+	{
+		JOptionPane.showMessageDialog(null, "You died. Better luck next time.");
+		replay = JOptionPane.showInputDialog(null, "Would you like to play again? Type Yes or No");
+	}
+	
+	public static void zombieHorde()
+	{
+		JOptionPane.showInputDialog(null, "Oh no! A zombie horde has found you wandering around. Do you choose to fight or flee from the horde?"
+				+ "(Hint: If you have no weapon, do not fight)");
 	}
 	
 }
