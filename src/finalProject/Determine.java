@@ -9,10 +9,8 @@ package finalProject;
  */
 public class Determine 
 {
-
-	public static int weapon, food, vehicle, survivors;
 	
-	public static boolean weapon()
+	public static boolean weapon(int weapon)
 	{
 		boolean doesHaveWeapon = false;
 		if(weapon == 1)
@@ -20,7 +18,7 @@ public class Determine
 		return doesHaveWeapon;
 	}
 	
-	public static boolean food()
+	public static boolean food(int food)
 	{
 		boolean doesHaveFood = true;
 		if(food == 0)
@@ -28,7 +26,7 @@ public class Determine
 		return doesHaveFood;
 	}
 	
-	public static boolean vehicle()
+	public static boolean vehicle(int vehicle)
 	{
 		boolean doesHaveVehicle = false;
 		if(vehicle == 1)
@@ -36,12 +34,20 @@ public class Determine
 		return doesHaveVehicle;
 	}
 	
-	public static boolean survivors()
+	public static boolean survivors(int survivors)
 	{
 		boolean doesHaveSurvivors = false;
 		if(survivors == 1)
 			doesHaveSurvivors = true;
 		return doesHaveSurvivors;
+	}
+	
+	public static boolean location(int location)
+	{
+		boolean inCity = false;
+		if(location == 0)
+			inCity = true;
+		return inCity;
 	}
 
 }
