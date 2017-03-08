@@ -12,14 +12,19 @@ public class firstClass
 {
 
 	public static int weapon, food, vehicle, survivors;
-	private static String replay = "Yes";
+	private static String replay = "Yes", base, home;
 	
 	public static void main(String[] args) 
 	{
-		do
 		{
+			base = JOptionPane.showInputDialog(null, "Welcome to the Zombie Wasteland Survival Game.\nChoose where you set up base:\nCity or Suburbs?");
 			
-		} while(replay == "Yes");
+			if("City".equals(base))
+				home = JOptionPane.showInputDialog(null, "Where in the city do you set up base?\nA cafe, an aumsement park, or a gun store");
+			if("Suburbs".equals(base))
+				home = JOptionPane.showInputDialog(null, "Where in the suburbs do you set up base?\nA barn yard, a prison, or a church");
+			
+		}
 	}
 	
 	public static void winMessage()
