@@ -16,7 +16,10 @@ public class firstClass
 	
 	public static void main(String[] args) 
 	{
-		
+		do
+		{
+			
+		} while(replay == "Yes");
 	}
 	
 	public static boolean successGen()
@@ -69,9 +72,9 @@ public class firstClass
 			JOptionPane.showMessageDialog(null, "You survived with no weapon, vehicle, or extra food. Well done.");
 	}
 	
-	public static void foodLossMessage()
+	public static void loseMessage()
 	{
-		JOptionPane.showMessageDialog(null, "You died because you couldn't find any food. Better luck next time.");
+		JOptionPane.showMessageDialog(null, "You died. Better luck next time.");
 		replay = JOptionPane.showInputDialog(null, "Would you like to play again? Type Yes or No");
 	}
 	
@@ -79,11 +82,6 @@ public class firstClass
 	{
 		JOptionPane.showInputDialog(null, "Oh no! A zombie horde has found you wandering around. Do you choose to fight or flee from the horde?"
 				+ "(Hint: If you have no weapon, do not fight)");
-	}
-	
-	public static String homeBase()
-	{
-		JOptionPane.showInputDialog(null, "");
 	}
 	
 }
