@@ -12,7 +12,7 @@ public class firstClass
 {
 
 	public static int weapon, food, vehicle, survivors;
-	private static String replay;
+	private static String replay = "Yes";
 	
 	public static void main(String[] args) 
 	{
