@@ -9,12 +9,8 @@ package finalProject;
  */
 public class Determine 
 {
+
 	public static int weapon, food, vehicle, survivors;
-	
-	public static void main(String[] args) 
-	{
-	
-	}
 	
 	public static boolean weapon()
 	{

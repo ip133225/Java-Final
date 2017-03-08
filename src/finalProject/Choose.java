@@ -12,11 +12,6 @@ import javax.swing.JOptionPane;
 public class Choose 
 {
 
-	public static void main(String[] args) 
-	{
-	
-	}
-
 	public static void zombieHorde()
 	{
 		JOptionPane.showInputDialog(null, "Oh no! A zombie horde has found you wandering around. Do you choose to fight or flee from the horde?"
