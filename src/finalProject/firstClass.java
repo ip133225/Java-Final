@@ -16,6 +16,7 @@ public class firstClass
 	
 	public static void main(String[] args) 
 	{
+		do
 		{
 			base = JOptionPane.showInputDialog(null, "Welcome to the Zombie Wasteland Survival Game.\nChoose where you set up base:\nCity or Suburbs?");
 			
@@ -24,7 +25,11 @@ public class firstClass
 			if("Suburbs".equals(base))
 				home = JOptionPane.showInputDialog(null, "Where in the suburbs do you set up base?\nA barn yard, a prison, or a church");
 			chooseSearch = JOptionPane.showInputDialog(null, "Would you like to search your base for supplies, or leave in the hopes of finding something?");
-		}
+			
+			replay = JOptionPane.showInputDialog(null, "Would you like to play again? Type Yes or No");
+			
+		} while(replay == "Yes");
+		
 	}
 	
 	public static void winMessage()
@@ -37,7 +42,6 @@ public class firstClass
 	public static void loseMessage()
 	{
 		JOptionPane.showMessageDialog(null, "You died. Better luck next time.");
-		replay = JOptionPane.showInputDialog(null, "Would you like to play again? Type Yes or No");
 	}
 	
 }
