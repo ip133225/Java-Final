@@ -17,11 +17,11 @@ public class firstClass
 	{
 		do
 		{
+			Choose.chooseBase();
 			
-					
 			replay = JOptionPane.showInputDialog(null, "Would you like to play again? Type Yes or No");
 			
-		} while(replay == "Yes");
+		} while("Yes".equals(replay));
 		
 	}
 	
