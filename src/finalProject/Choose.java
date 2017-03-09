@@ -65,6 +65,5 @@ public class Choose
 				JOptionPane.showMessageDialog(null, "You found an old pickup truck." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
 			}
 		}
-		
 	}
 }
