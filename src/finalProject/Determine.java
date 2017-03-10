@@ -42,10 +42,10 @@ public class Determine
 		return hasSurvivors;
 	}
 	
-	public static boolean inCity(String location)
+	public static boolean inCity(int location)
 	{
 		boolean inCity = false;
-		if("City".equals(location))
+		if(location == 0)
 			inCity = true;
 		return inCity;
 	}

@@ -11,17 +11,18 @@ import javax.swing.JOptionPane;
 public class firstClass 
 {
 	
-	public static String replay = "Yes";
+	public static int replay, base, location;
 	
 	public static void main(String[] args) 
 	{
+
 		do
 		{
-			Choose.chooseBase();
+			base = Choose.chooseBase();
 			
-			replay = JOptionPane.showInputDialog(null, "Would you like to play again? Type Yes or No");
 			
-		} while("Yes".equals(replay));
+			replay = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Play Again", JOptionPane.YES_NO_OPTION);
+		} while(replay == 0);
 		
 	}
 	
