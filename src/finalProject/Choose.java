@@ -11,10 +11,7 @@ import javax.swing.JOptionPane;
  */
 public class Choose 
 {
-
-	public static boolean yes;
-	public static int weapon, food, vehicle, survivors;
-	private static String base, home, chooseSearch;
+	public static int base;
 	
 	public static void chooseFightOrFlee()
 	{
@@ -26,44 +23,38 @@ public class Choose
 		JOptionPane.showInputDialog(null, "Do you choose to to hotwire the first vehicle you see or search for vehicle with keys?");
 	}
 	
-	public static void chooseBase()
+	public static int chooseLocation()
 	{
-		base = JOptionPane.showInputDialog(null, "Welcome to the Zombie Wasteland Survival Game.\nChoose where you set up base:\nCity or Suburbs?");
+		String[] chooseLocation = {"City", "Suburbs"};
+		int inCity;
 		
-		if("City".equals(base))
-			home = JOptionPane.showInputDialog(null, "Where in the city do you set up base?\nA Cafe, an Aumsement Park, or a Gun Store");
-		if("Suburbs".equals(base))
-			home = JOptionPane.showInputDialog(null, "Where in the suburbs do you set up base?\nA Barn Yard, a Prison, or a Church");
+		JOptionPane.showMessageDialog(null, "Welcome to the Zombie Wasteland Survival Game!");
+		inCity = JOptionPane.showOptionDialog(null, "To begin, choose a place you would live:", "Choose Location", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
+				null, chooseLocation, chooseLocation[0]);
+		return inCity;
+	}
+	
+	public static int chooseBase()
+	{
+		String[] chooseLocation = {"City", "Suburbs"};
+		String[] chooseCityBase = {"A Desolate Cafe", "An Old Amusement Park", "A Deserted Gun Store"};
+		String[] chooseSuburbBase = {"An Empty Barn Yard", "A Damaged Prison Building", "An Abandoned Church"};
+		String[] searchOrLeave = {"Search", "Leave"};
+		boolean inCity;
+		int variable;
 		
-		chooseSearch = JOptionPane.showInputDialog(null, "Would you like to search your base for supplies, or leave in the hopes of finding something?\nSearch or Leave?");
+		inCity = Determine.inCity(chooseLocation());
 		
-		if(Determine.inCity(base));
+		if(inCity == true)
 		{
-			if("Search".equals(chooseSearch))
-			{
-				if("Cafe".equals(home))
-				{
-					food = 1;
-					weapon = 1;
-					JOptionPane.showMessageDialog(null, "You found a single kitchen knife and some nonperishable food." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
-				}
-				if("Amusement Park".equals(home))
-				{
-					weapon = 1;
-					vehicle = 1;
-					JOptionPane.showMessageDialog(null, "You found a crowbar and a beat up golf cart." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
-				}
-				if("Gun Store".equals(home))
-				{
-					weapon = 1;
-					JOptionPane.showMessageDialog(null, "You found a small pistol and some ammo." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
-				}
-			}
-			if("Leave".equals(chooseSearch))
-			{
-				vehicle = 1;
-				JOptionPane.showMessageDialog(null, "You found an old pickup truck." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
-			}
+			base = JOptionPane.showOptionDialog(null, "Where in the city do you want to set up your base?", "Choose Base", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
+					null, chooseCityBase, chooseCityBase[0]);
 		}
+		else
+		{
+			base = JOptionPane.showOptionDialog(null, "Where in the suburbs do you want to set up your base?", "Choose Base", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
+					null, chooseSuburbBase, chooseSuburbBase[0]);
+		}
+		return base;
 	}
 }
