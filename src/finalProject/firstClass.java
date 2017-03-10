@@ -19,7 +19,7 @@ public class firstClass
 		do
 		{
 			base = Choose.chooseBase();
-			
+			Choose.searchorLeave(base);
 			
 			replay = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Play Again", JOptionPane.YES_NO_OPTION);
 		} while(replay == 0);
