@@ -11,29 +11,33 @@ import javax.swing.JOptionPane;
 public class firstClass 
 {
 	
-	public static int replay, base, location;
+	public static int replay, base, location, days;
+	public static boolean death = false;
 	
 	public static void main(String[] args) 
 	{
-
 		do
 		{
-			base = Choose.chooseBase();
+			Choose.food = 0;
+			Choose.weapon = 0;
+			Choose.vehicle = 0;
+			death = false;
+			base = Choose.base();
 			Choose.searchorLeave(base);
+			if(death == false)
+			{
+				JOptionPane.showMessageDialog(null, "Day 1 Ends, Day 2 Begins");
+				Choose.beginDay2();
+				if(death == false)
+				{
+					JOptionPane.showMessageDialog(null, "Day 2 Ends, Day 3 Begins");
+					Choose.beginDay3();
+				}		
+			}
 			
 			replay = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Play Again", JOptionPane.YES_NO_OPTION);
 		} while(replay == 0);
 		
-	}
-	
-	public static void winMessage()
-	{
-		JOptionPane.showMessageDialog(null, "Congratulations! You survived the four days required for help to arrive. You win!");
-	}
-	
-	public static void loseMessage()
-	{
-		JOptionPane.showMessageDialog(null, "You died. Better luck next time.");
 	}
 	
 }
