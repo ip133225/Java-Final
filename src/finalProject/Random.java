@@ -16,7 +16,7 @@ public class Random
 	{
 		boolean success = false;
 		int random = (int)(Math.random() * 100 + 1);
-		if(random >= 50)
+		if(random >= 0)
 			success = true;
 		else
 			success = false;
@@ -28,7 +28,8 @@ public class Random
 		if(Random.successGen())
 		{
 			Choose.food = Choose.food + 3;
-			JOptionPane.showMessageDialog(null, "You managed to find some nonperishables in a nearby building.");
+			JOptionPane.showMessageDialog(null, "You managed to find some nonperishables in a nearby building. +3 Food"  
+					+ "\nStats:\nFood: " + Choose.food + "\nWeapons: " + Choose.weapon + "\nVehicles: " + Choose.vehicle);
 			return true;
 		}
 		else

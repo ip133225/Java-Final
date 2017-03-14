@@ -13,7 +13,7 @@ public class Determine
 	public static boolean weapon(int weapon)
 	{
 		boolean hasWeapon = false;
-		if(weapon == 1)
+		if(weapon > 0)
 			hasWeapon = true;
 		return hasWeapon;
 	}
@@ -21,7 +21,7 @@ public class Determine
 	public static boolean food(int food)
 	{
 		boolean hasFood = true;
-		if(food == 0)
+		if(food < 1)
 			hasFood = false;
 		return hasFood;
 	}
@@ -29,7 +29,7 @@ public class Determine
 	public static boolean vehicle(int vehicle)
 	{
 		boolean hasVehicle = false;
-		if(vehicle == 1)
+		if(vehicle > 0)
 			hasVehicle = true;
 		return hasVehicle;
 	}
