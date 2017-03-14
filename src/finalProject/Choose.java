@@ -11,10 +11,8 @@ import javax.swing.JOptionPane;
  */
 public class Choose 
 {
-	public static int search, survivors = 0, food = 0, vehicle = 0, weapon = 0, variable;
+	public static int search, variable, variable2, survivors = 0, food = 0, vehicle = 0, weapon = 0;
 	private static boolean inCity;
-	
-	
 	
 	public static int base()
 	{
@@ -47,6 +45,7 @@ public class Choose
 		return inCityNumber;
 	
 	}
+	
 	public static void searchorLeave(int base)
 	{
 		String[] searchorLeave = {"Search", "Leave"};
@@ -61,18 +60,18 @@ public class Choose
 				{
 					++food;
 					++weapon;
-					JOptionPane.showMessageDialog(null, "You found a single kitchen knife and some nonperishable food." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "You found a single kitchen knife and some nonperishable food. +1 Food, +1 Weapon" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
 				}
 				if(base == 1)
 				{
 					++weapon;
 					++vehicle;
-					JOptionPane.showMessageDialog(null, "You found a crowbar and a beat up golf cart." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "You found a crowbar and a beat up golf cart. +1 Weapon, +1 Vehicle" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
 				}
 				if(base == 2)
 				{
 					++weapon;
-					JOptionPane.showMessageDialog(null, "You found a pistol and some ammo." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "You found a pistol and some ammo. +1 Weapon" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
 				}
 			}
 			else
@@ -80,12 +79,12 @@ public class Choose
 				if(base == 0)
 				{
 					++weapon;
-					JOptionPane.showMessageDialog(null, "You found a single pitchfork." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "You found a single pitchfork. +1 Weapon" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
 				}
 				if(base == 1)
 				{
 					++weapon;
-					JOptionPane.showMessageDialog(null, "You found an old taser." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "You found an old taser. +1 Weapon" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
 				}
 				if(base == 2)
 				{
@@ -96,12 +95,12 @@ public class Choose
 		else if(inCity == true)
 		{
 			++vehicle;
-			JOptionPane.showMessageDialog(null, "You found a rusty pickup truck." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+			JOptionPane.showMessageDialog(null, "You found a rusty pickup truck. +1 Vehicle" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
 		}
 		else
 		{
 			++weapon;
-			JOptionPane.showMessageDialog(null, "You found a crossbow and some bolts." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+			JOptionPane.showMessageDialog(null, "You found a crossbow and some bolts. +1 Weapon" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
 		}
 	}
 
@@ -128,7 +127,7 @@ public class Choose
 		if(variable == 0)
 		{
 			++survivors;
-			JOptionPane.showMessageDialog(null, "You spend half the day gathering resources, and the later half building defenses.\nHowever, once you have settled down to a fire, a group of scavengers meets you.\nYou decide to help them out."
+			JOptionPane.showMessageDialog(null, "You spend half the day gathering resources, and the later half building defenses.\nHowever, once you have settled down to a fire, a lone scavenger meets you.\nYou decide to help them out. +1 Survivor"
 					+ " (This now requires you to use two food per day, instead of one)");
 		}
 		else
@@ -141,7 +140,8 @@ public class Choose
 	{
 		String[] flee = {"Flee"};
 		String[] fightorFlee = {"Flee", "Fight"};
-		if(weapon > 0)
+		
+		if(Determine.weapon(weapon))
 		{
 			variable = JOptionPane.showOptionDialog(null, "While you are out wandering, a group of zombies finds you.\nYou have a weapon, so do you want run away, or fight them off?", 
 				"Flee or Fight", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, fightorFlee, fightorFlee[0]);
@@ -157,15 +157,10 @@ public class Choose
 		}
 		else
 		{
-			fight();
+			JOptionPane.showMessageDialog(null, "You finish the battle with blood dripping off of you.\nWell done.");
 		}
 	}
-	
-	public static void fight()
-	{
-		JOptionPane.showMessageDialog(null, "You finish the battle with blood dripping off of you.\nWell done.");
-	}
-	
+
 	public static void beginDay3()
 	{
 		if(Determine.survivors(survivors))
@@ -176,28 +171,118 @@ public class Choose
 			--food;
 		if(Determine.food(food))
 		{
-			vehicleWeaponFood();
+			day3();
 		}
 		else
 		{
 			JOptionPane.showMessageDialog(null, "You do not have any food for the day. You will have to go scavenging.");
 			if(Random.getFood())
-				vehicleWeaponFood();
+				day3();
 		}
 	}
 	
-	public static void vehicleWeaponFood()
+	public static void day3()
 	{
 		String[] vehicleWeaponFood = {"Look for A Vehicle", "Look for A Weapon", "Look for Extra Food"};
+		String[] vehicleSearch = {"Hotwire", "Search"};
 		
-		variable = JOptionPane.showOptionDialog(null, "You decide to spend the day preparing for the final day before help arrives.\nHow do you spend it?.", 
-				"Preparations", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, vehicleWeaponFood, vehicleWeaponFood[0]);
+		variable = JOptionPane.showOptionDialog(null, "You decide to spend the day preparing for the final day before help arrives.\nHow do you spend it?."  
+				+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, "Preparations", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
+				null, vehicleWeaponFood, vehicleWeaponFood[0]);
 		if(variable == 0)
-			System.out.println("Success");
+		{
+			variable2 = JOptionPane.showOptionDialog(null, "Now, do you hotwire the first car you see, or search for a car with the key in the ignition?", "Hotwire or Search", 
+					JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, vehicleSearch, vehicleSearch[0]);
+			if(variable2 == 0)
+			{
+				if(Random.successGen())
+				{
+					++vehicle;
+					JOptionPane.showMessageDialog(null, "Your knowledge of mechanics pays off. You hotwired the car. +1 Vehicle"
+							+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "You had no idea how a car works, and tried hotwiring it.\nOne thing lead to another, and it blew up with you inside. You are dead.");
+					firstClass.death = true;
+				}
+			}
+			if(variable2 == 1)
+			{
+				++vehicle;
+				JOptionPane.showMessageDialog(null, "It takes a couple hours, but you manage to find a car with the keys still inside." 
+						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+			}
+		}
+		if(variable == 1)
+		{
+			if(Random.successGen())
+			{
+				++weapon;
+				JOptionPane.showMessageDialog(null, "You scrounged through junk for hours, but managed to find a dull machete. +1 Weapon"  
+						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null, "You tried for hours, but didn't find anything useful."  + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+			}
+		}
+		if(variable == 2)
+		{
+			if(Random.successGen())
+			{
+				food = food + 2;
+				JOptionPane.showMessageDialog(null, "You managed to kill and skin a deer for some fresh food. +2 Food"  
+						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+			}
+			else
+			{
+				++food;
+				JOptionPane.showMessageDialog(null, "You managed to find a small amount of food in an old shop. Only enough for one person though. +1 Food"
+						 + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+			}
+		}
 	}
 	
-	public static void vehicle()
+	public static void beginDay4()
 	{
-		JOptionPane.showInputDialog(null, "Do you choose to to hotwire the first vehicle you see or search for vehicle with keys?");
+		if(Determine.survivors(survivors))
+		{
+			food = food - 2;
+		}
+		else 
+			--food;
+		if(Determine.food(food))
+		{
+			day4();
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, "You do not have any food for the day. You will have to go scavenging.");
+			if(Random.getFood())
+				day4();
+		}
 	}
+	
+	public static void day4()
+	{
+		String[] searchHelp = {"Search", "Wait"};
+		
+		variable = JOptionPane.showOptionDialog(null, "The final day has arrived. There is one big question looming over your head though.\nDo you search for help or wait for them to find you?", "Search or Wait", 
+				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, searchHelp, searchHelp[0]);
+		if(variable == 0)
+		{
+			if(Determine.vehicle(vehicle))
+			{
+				JOptionPane.showMessageDialog(null, "You spend hours driving around. Around noon, you hear a whirring in the air.\nYou look up, only to see a helicopter in the distance."
+						+ " Help has arrived.");
+				JOptionPane.showMessageDialog(null, "You win!");
+			}
+		}
+		else
+		{
+			
+		}
+	}
+
 }

@@ -32,11 +32,16 @@ public class firstClass
 				{
 					JOptionPane.showMessageDialog(null, "Day 2 Ends, Day 3 Begins");
 					Choose.beginDay3();
+					if(death == false)
+					{
+						JOptionPane.showMessageDialog(null, "Day 3 Ends, Day 4 Begins");
+						Choose.beginDay4();
+					}
 				}		
 			}
 			
 			replay = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Play Again", JOptionPane.YES_NO_OPTION);
-		} while(replay == 0);
+		} while(replay == JOptionPane.YES_OPTION);
 		
 	}
 	
