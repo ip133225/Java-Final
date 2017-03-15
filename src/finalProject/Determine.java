@@ -21,7 +21,7 @@ public class Determine
 	public static boolean food(int food)
 	{
 		boolean hasFood = true;
-		if(food < 1)
+		if(food <= 1)
 			hasFood = false;
 		return hasFood;
 	}

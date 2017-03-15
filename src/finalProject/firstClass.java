@@ -16,6 +16,9 @@ public class firstClass
 	
 	public static void main(String[] args) 
 	{
+		
+		JOptionPane.showMessageDialog(null, "Welcome to the Zombie Wasteland Survival Game!");
+		
 		do
 		{
 			Choose.food = 0;
@@ -26,15 +29,15 @@ public class firstClass
 			Choose.searchorLeave(base);
 			if(death == false)
 			{
-				JOptionPane.showMessageDialog(null, "Day 1 Ends, Day 2 Begins");
+				JOptionPane.showMessageDialog(null, "Day 1 Ends, Day 2 Begins", null, JOptionPane.INFORMATION_MESSAGE);
 				Choose.beginDay2();
 				if(death == false)
 				{
-					JOptionPane.showMessageDialog(null, "Day 2 Ends, Day 3 Begins");
+					JOptionPane.showMessageDialog(null, "Day 2 Ends, Day 3 Begins", null, JOptionPane.INFORMATION_MESSAGE);
 					Choose.beginDay3();
 					if(death == false)
 					{
-						JOptionPane.showMessageDialog(null, "Day 3 Ends, Day 4 Begins");
+						JOptionPane.showMessageDialog(null, "Day 3 Ends, Day 4 Begins", null, JOptionPane.INFORMATION_MESSAGE);
 						Choose.beginDay4();
 					}
 				}		

@@ -23,13 +23,13 @@ public class Choose
 		
 		if(inCity == true)
 		{
-			variable = JOptionPane.showOptionDialog(null, "Where in the city do you want to set up your base?", "Choose Base", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
-					null, chooseCityBase, chooseCityBase[0]);
+			variable = JOptionPane.showOptionDialog(null, "Where in the city do you want to set up your base?", "Choose Base", 
+					JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, chooseCityBase, chooseCityBase[0]);
 		}
 		else
 		{
-			variable = JOptionPane.showOptionDialog(null, "Where in the suburbs do you want to set up your base?", "Choose Base", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
-					null, chooseSuburbBase, chooseSuburbBase[0]);
+			variable = JOptionPane.showOptionDialog(null, "Where in the suburbs do you want to set up your base?", "Choose Base", 
+					JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, chooseSuburbBase, chooseSuburbBase[0]);
 		}
 		return variable;
 	}
@@ -39,9 +39,8 @@ public class Choose
 		String[] chooseLocation = {"City", "Suburbs"};
 		int inCityNumber;
 		
-		JOptionPane.showMessageDialog(null, "Welcome to the Zombie Wasteland Survival Game!");
-		inCityNumber = JOptionPane.showOptionDialog(null, "To begin, choose a place you would live:", "Choose Location", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
-				null, chooseLocation, chooseLocation[0]);
+		inCityNumber = JOptionPane.showOptionDialog(null, "To begin, choose a place you would live:", "Choose Location", 
+				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, chooseLocation, chooseLocation[0]);
 		return inCityNumber;
 	
 	}
@@ -50,8 +49,8 @@ public class Choose
 	{
 		String[] searchorLeave = {"Search", "Leave"};
 		
-		variable = JOptionPane.showOptionDialog(null, "Do you want to search your base for supplies, or leave to scavenge the surrounding area?", "Search or Leave", 
-				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, searchorLeave, searchorLeave[0]);
+		variable = JOptionPane.showOptionDialog(null, "Do you want to search your base for supplies, or leave to scavenge the surrounding area?", 
+				"Search or Leave", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, searchorLeave, searchorLeave[0]);
 		if(variable == 0)
 		{
 			if(inCity == true)
@@ -60,18 +59,21 @@ public class Choose
 				{
 					++food;
 					++weapon;
-					JOptionPane.showMessageDialog(null, "You found a single kitchen knife and some nonperishable food. +1 Food, +1 Weapon" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "You found a single kitchen knife and some nonperishable food. +1 Food, +1 Weapon" 
+							+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 				}
 				if(base == 1)
 				{
 					++weapon;
 					++vehicle;
-					JOptionPane.showMessageDialog(null, "You found a crowbar and a beat up golf cart. +1 Weapon, +1 Vehicle" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "You found a crowbar and a beat up golf cart. +1 Weapon, +1 Vehicle" 
+							+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 				}
 				if(base == 2)
 				{
 					++weapon;
-					JOptionPane.showMessageDialog(null, "You found a pistol and some ammo. +1 Weapon" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "You found a pistol and some ammo. +1 Weapon" 
+							+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 			else
@@ -79,40 +81,47 @@ public class Choose
 				if(base == 0)
 				{
 					++weapon;
-					JOptionPane.showMessageDialog(null, "You found a single pitchfork. +1 Weapon" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "You found a single pitchfork. +1 Weapon" 
+							+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 				}
 				if(base == 1)
 				{
 					++weapon;
-					JOptionPane.showMessageDialog(null, "You found an old taser. +1 Weapon" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "You found an old taser. +1 Weapon" 
+							+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 				}
 				if(base == 2)
 				{
-					JOptionPane.showMessageDialog(null, "It seems the church has been ransacked. You found nothing." + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+					JOptionPane.showMessageDialog(null, "It seems the church has been ransacked. You found nothing." 
+							+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		}
 		else if(inCity == true)
 		{
 			++vehicle;
-			JOptionPane.showMessageDialog(null, "You found a rusty pickup truck. +1 Vehicle" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+			JOptionPane.showMessageDialog(null, "You found a rusty pickup truck. +1 Vehicle" 
+					+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 		}
 		else
 		{
 			++weapon;
-			JOptionPane.showMessageDialog(null, "You found a crossbow and some bolts. +1 Weapon" + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+			JOptionPane.showMessageDialog(null, "You found a crossbow and some bolts. +1 Weapon" 
+					+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
 	public static void beginDay2()
 	{
+		--food;
 		if(Determine.food(food))
 		{
 			baseOrLook();
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "You do not have any food for the day. You will have to go scavenging.");
+			JOptionPane.showMessageDialog(null, "You do not have any food for the day. You will have to go scavenging.", 
+					null, JOptionPane.WARNING_MESSAGE);
 			if(Random.getFood())
 				baseOrLook();
 		}
@@ -128,7 +137,7 @@ public class Choose
 		{
 			++survivors;
 			JOptionPane.showMessageDialog(null, "You spend half the day gathering resources, and the later half building defenses.\nHowever, once you have settled down to a fire, a lone scavenger meets you.\nYou decide to help them out. +1 Survivor"
-					+ " (This now requires you to use two food per day, instead of one)");
+					+ " (This now requires you to use two food per day, instead of one)", null, JOptionPane.INFORMATION_MESSAGE);
 		}
 		else
 		{
@@ -144,12 +153,12 @@ public class Choose
 		if(Determine.weapon(weapon))
 		{
 			variable = JOptionPane.showOptionDialog(null, "While you are out wandering, a group of zombies finds you.\nYou have a weapon, so do you want run away, or fight them off?", 
-				"Flee or Fight", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, fightorFlee, fightorFlee[0]);
+				"Flee or Fight", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, fightorFlee, fightorFlee[0]);
 		}
 		else
 		{
 			variable = JOptionPane.showOptionDialog(null, "While you are out wandering, a group of zombies finds you.\nYou don't have a weapon. You can only flee for a chance of survival.", 
-					"Flee", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, flee, flee[0]);
+					"Flee", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null, flee, flee[0]);
 		}
 		if(variable == 0)
 		{
@@ -157,7 +166,8 @@ public class Choose
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "You finish the battle with blood dripping off of you.\nWell done.");
+			JOptionPane.showMessageDialog(null, "You finish the battle with blood dripping off of you.\nWell done.",
+					null, JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
@@ -175,7 +185,8 @@ public class Choose
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "You do not have any food for the day. You will have to go scavenging.");
+			JOptionPane.showMessageDialog(null, "You do not have any food for the day. You will have to go scavenging.", 
+					null, JOptionPane.WARNING_MESSAGE);
 			if(Random.getFood())
 				day3();
 		}
@@ -199,11 +210,12 @@ public class Choose
 				{
 					++vehicle;
 					JOptionPane.showMessageDialog(null, "Your knowledge of mechanics pays off. You hotwired the car. +1 Vehicle"
-							+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+							+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "You had no idea how a car works, and tried hotwiring it.\nOne thing lead to another, and it blew up with you inside. You are dead.");
+					JOptionPane.showMessageDialog(null, "You had no idea how a car works, and tried hotwiring it."
+							+ "\nOne thing lead to another, and it blew up with you inside. You are dead.", null, JOptionPane.ERROR_MESSAGE);
 					firstClass.death = true;
 				}
 			}
@@ -211,7 +223,7 @@ public class Choose
 			{
 				++vehicle;
 				JOptionPane.showMessageDialog(null, "It takes a couple hours, but you manage to find a car with the keys still inside. +1 Vehicle" 
-						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 		if(variable == 1)
@@ -220,11 +232,12 @@ public class Choose
 			{
 				++weapon;
 				JOptionPane.showMessageDialog(null, "You scrounged through junk for hours, but managed to find a dull machete. +1 Weapon"  
-						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "You tried for hours, but didn't find anything useful."  + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+				JOptionPane.showMessageDialog(null, "You tried for hours, but didn't find anything useful."  
+						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 		if(variable == 2)
@@ -233,13 +246,13 @@ public class Choose
 			{
 				food = food + 2;
 				JOptionPane.showMessageDialog(null, "You managed to kill and skin a deer for some fresh food. +2 Food"  
-						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 			}
 			else
 			{
 				++food;
 				JOptionPane.showMessageDialog(null, "You managed to find a small amount of food in an old shop. Only enough for one person though. +1 Food"
-						 + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
+						 + "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, null, JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
@@ -258,7 +271,8 @@ public class Choose
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "You do not have any food for the day. You will have to go scavenging.");
+			JOptionPane.showMessageDialog(null, "You do not have any food for the day. You will have to go scavenging.", 
+					null, JOptionPane.WARNING_MESSAGE);
 			if(Random.getFood())
 				day4();
 		}
@@ -276,16 +290,17 @@ public class Choose
 			if(Determine.vehicle(vehicle))
 			{
 				JOptionPane.showMessageDialog(null, "You spend hours driving around. Around noon, you hear a whirring in the air.\nYou look up, only to see a helicopter in the distance."
-						+ " Help has arrived.");
-				JOptionPane.showMessageDialog(null, "You win!");
+						+ " Help has arrived.", null, JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "You win!", null, JOptionPane.INFORMATION_MESSAGE);
 			}
 			else
 			{
 				fightOrFlee();
 				if(firstClass.death == false)
 				{
-					JOptionPane.showMessageDialog(null, "Once the battle is over you here a helicopter in the distance. You look up, and finally see help arrive.");
-					JOptionPane.showMessageDialog(null, "You win!");
+					JOptionPane.showMessageDialog(null, "Once the battle is over you here a helicopter in the distance. "
+							+ "You look up, and finally see help arrive.", null, JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You win!", null, JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		}
@@ -294,8 +309,8 @@ public class Choose
 			if(Determine.food(food))
 			{
 				JOptionPane.showMessageDialog(null, "You spend most of the day in your base, waiting near your fire.\nYou almost lose hope as you see the sun set, but you keep waiting."
-						+ "\nFinally, you hear a helicopter in the distance. Help has arrived.");
-				JOptionPane.showMessageDialog(null, "You win!");
+						+ "\nFinally, you hear a helicopter in the distance. Help has arrived.", null, JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "You win!", null, JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 			else
@@ -303,8 +318,8 @@ public class Choose
 				if(Random.getFood())
 				{
 					JOptionPane.showMessageDialog(null, "You wait at base for hours upon hours.\nLittle hope is left, once you see the sun setting!"
-							+ "\nFinally, a helicopter can be heard in the distance. Help has arrived.");
-					JOptionPane.showMessageDialog(null, "You win!");
+							+ "\nFinally, a helicopter can be heard in the distance. Help has arrived.", null, JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You win!", null, JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		}

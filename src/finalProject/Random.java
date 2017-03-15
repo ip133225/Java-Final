@@ -29,13 +29,14 @@ public class Random
 		{
 			Choose.food = Choose.food + 3;
 			JOptionPane.showMessageDialog(null, "You managed to find some nonperishables in a nearby building. +3 Food"  
-					+ "\nStats:\nFood: " + Choose.food + "\nWeapons: " + Choose.weapon + "\nVehicles: " + Choose.vehicle);
+					+ "\nStats:\nFood: " + Choose.food + "\nWeapons: " + Choose.weapon + "\nVehicles: " + Choose.vehicle, 
+					null, JOptionPane.INFORMATION_MESSAGE);
 			return true;
 		}
 		else
 		{
 			firstClass.death = true;
-			JOptionPane.showMessageDialog(null, "You couldn't find food. You starved to death.");
+			JOptionPane.showMessageDialog(null, "You couldn't find food. You starved to death.", null, JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 	}
@@ -44,12 +45,12 @@ public class Random
 	{
 		if(successGen())
 		{
-			JOptionPane.showMessageDialog(null, "You were quick enough to escape the zombies. Barely.");
+			JOptionPane.showMessageDialog(null, "You were quick enough to escape the zombies. Barely.", null, JOptionPane.INFORMATION_MESSAGE);
 		}
 		else
 		{
 			firstClass.death = true;
-			JOptionPane.showMessageDialog(null, "You were too slow, and the zombies caught you. You died.");
+			JOptionPane.showMessageDialog(null, "You were too slow, and the zombies caught you. You died.", null, JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
