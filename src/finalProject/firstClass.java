@@ -25,6 +25,7 @@ public class firstClass
 			Choose.weapon = 0;
 			Choose.vehicle = 0;
 			death = false;
+			Choose.difficulty();
 			base = Choose.base();
 			Choose.searchorLeave(base);
 			if(death == false)
