@@ -16,7 +16,7 @@ public class Random
 	{
 		boolean success = false;
 		int random = (int)(Math.random() * 100 + 1);
-		if(random >= 50)
+		if(random >= Choose.random)
 			success = true;
 		else
 			success = false;

@@ -11,8 +11,21 @@ import javax.swing.JOptionPane;
  */
 public class Choose 
 {
-	public static int search, variable, variable2, survivors = 0, food = 0, vehicle = 0, weapon = 0;
+	public static int search, variable, variable2, random, difficulty, survivors = 0, food = 0, vehicle = 0, weapon = 0;
 	private static boolean inCity;
+	
+	public static void difficulty()
+	{
+		String[] difficultyString = {"Easy", "Normal", "Hard"};
+		difficulty = JOptionPane.showOptionDialog(null, "What difficulty do you want to play on?", "Choose Difficulty", 
+				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, difficultyString, difficultyString[0]);
+		if(difficulty == 0)
+			random = 75;
+		if(difficulty == 1)
+			random = 50;
+		if(difficulty == 2)
+			random = 25;
+	}
 	
 	public static int base()
 	{
