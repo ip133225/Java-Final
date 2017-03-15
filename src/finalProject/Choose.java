@@ -210,7 +210,7 @@ public class Choose
 			if(variable2 == 1)
 			{
 				++vehicle;
-				JOptionPane.showMessageDialog(null, "It takes a couple hours, but you manage to find a car with the keys still inside." 
+				JOptionPane.showMessageDialog(null, "It takes a couple hours, but you manage to find a car with the keys still inside. +1 Vehicle" 
 						+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle);
 			}
 		}
@@ -268,8 +268,9 @@ public class Choose
 	{
 		String[] searchHelp = {"Search", "Wait"};
 		
-		variable = JOptionPane.showOptionDialog(null, "The final day has arrived. There is one big question looming over your head though.\nDo you search for help or wait for them to find you?", "Search or Wait", 
-				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, searchHelp, searchHelp[0]);
+		variable = JOptionPane.showOptionDialog(null, "The final day has arrived. There is one big question looming over your head though.\nDo you search for help or wait for them to find you?"
+				+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, "Search or Wait", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
+				null, searchHelp, searchHelp[0]);
 		if(variable == 0)
 		{
 			if(Determine.vehicle(vehicle))
@@ -278,10 +279,34 @@ public class Choose
 						+ " Help has arrived.");
 				JOptionPane.showMessageDialog(null, "You win!");
 			}
+			else
+			{
+				fightOrFlee();
+				if(firstClass.death == false)
+				{
+					JOptionPane.showMessageDialog(null, "Once the battle is over you here a helicopter in the distance. You look up, and finally see help arrive.");
+					JOptionPane.showMessageDialog(null, "You win!");
+				}
+			}
 		}
 		else
 		{
-			
+			if(Determine.food(food))
+			{
+				JOptionPane.showMessageDialog(null, "You spend most of the day in your base, waiting near your fire.\nYou almost lose hope as you see the sun set, but you keep waiting."
+						+ "\nFinally, you hear a helicopter in the distance. Help has arrived.");
+				JOptionPane.showMessageDialog(null, "You win!");
+				
+			}
+			else
+			{
+				if(Random.getFood())
+				{
+					JOptionPane.showMessageDialog(null, "You wait at base for hours upon hours.\nLittle hope is left, once you see the sun setting!"
+							+ "\nFinally, a helicopter can be heard in the distance. Help has arrived.");
+					JOptionPane.showMessageDialog(null, "You win!");
+				}
+			}
 		}
 	}
 
