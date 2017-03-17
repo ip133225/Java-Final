@@ -1,1 +1,6 @@
 # Java-Final
+
+This video game is titled "Zombie Wasteland Survival".
+You will play by clicking the choices you make in each text box. The choices you make will reflect upon how you continue, and what you can achieve. 
+To win, you have to survive for 4 days in whichever area you choose. 
+There are many ways to die, so be careful out there.
