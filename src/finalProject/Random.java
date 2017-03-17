@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class Random 
 {
 	
-	public static boolean successGen()
+	public static boolean successGen()		//Random generator uses values to succeed or fail
 	{
 		boolean success = false;
 		int random = (int)(Math.random() * 100 + 1);
@@ -23,7 +23,7 @@ public class Random
 		return success;
 	}
 	
-	public static boolean getFood()
+	public static boolean getFood()			//Determines if User finds food or not, based on random generator
 	{
 		if(Random.successGen())
 		{
@@ -41,7 +41,7 @@ public class Random
 		}
 	}
 	
-	public static void flee()
+	public static void flee()				//Determines if User can flee a horde, based on random generator
 	{
 		if(successGen())
 		{

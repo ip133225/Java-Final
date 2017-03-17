@@ -14,9 +14,10 @@ public class Choose
 	public static int search, variable, variable2, random, difficulty, survivors = 0, food = 0, vehicle = 0, weapon = 0;
 	private static boolean inCity;
 	
-	public static void difficulty()
+	public static void difficulty()					//User chooses difficulty of random generator
 	{
-		String[] difficultyString = {"Easy", "Normal", "Hard"};
+		String[] difficultyString = {"Easy", "Normal", "Hard"};			
+		
 		difficulty = JOptionPane.showOptionDialog(null, "What difficulty do you want to play on?", "Choose Difficulty", 
 				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, difficultyString, difficultyString[0]);
 		if(difficulty == 0)
@@ -24,15 +25,15 @@ public class Choose
 		if(difficulty == 1)
 			random = 50;
 		if(difficulty == 2)
-			random = 5;
+			random = 25;
 	}
 	
-	public static int base()
+	public static int base()						//User chooses city or suburbs, and where, in those places
 	{
 		String[] chooseCityBase = {"A Desolate Cafe", "An Old Amusement Park", "A Deserted Gun Store"};
 		String[] chooseSuburbBase = {"An Empty Barn Yard", "A Damaged Prison Building", "An Abandoned Church"};
 		
-		inCity = Determine.inCity(location());
+		inCity = Determine.inCity(location());							
 		
 		if(inCity == true)
 		{
@@ -47,7 +48,7 @@ public class Choose
 		return variable;
 	}
 	
-	public static int location()
+	public static int location()					//User is asked for City/Suburbs
 	{
 		String[] chooseLocation = {"City", "Suburbs"};
 		int inCityNumber;
@@ -58,7 +59,7 @@ public class Choose
 	
 	}
 	
-	public static void searchorLeave(int base)
+	public static void searchorLeave(int base)		//User chooses to Search/Leave, earnings depends on home
 	{
 		String[] searchorLeave = {"Search", "Leave"};
 		
@@ -124,7 +125,7 @@ public class Choose
 		}
 	}
 
-	public static void beginDay2()
+	public static void beginDay2()					//Determines food, then begins day 2 choices
 	{
 		--food;
 		if(Determine.food(food))
@@ -140,7 +141,7 @@ public class Choose
 		}
 	}
 	
-	public static void baseOrLook()
+	public static void baseOrLook()					//If User lives to day 2, User chooses between base/searching
 	{
 		String[] baseHelp = {"Reinforce Base", "Look for Survivors"};
 	
@@ -158,7 +159,7 @@ public class Choose
 		}
 	}
 
-	public static void fightOrFlee()
+	public static void fightOrFlee()				//User determines how to escape zombies, based on their earnings of a weapon
 	{
 		String[] flee = {"Flee"};
 		String[] fightorFlee = {"Flee", "Fight"};
@@ -184,7 +185,7 @@ public class Choose
 		}
 	}
 
-	public static void beginDay3()
+	public static void beginDay3()					//Determines food, then begins day 3 choices			
 	{
 		if(Determine.survivors(survivors))
 		{
@@ -205,12 +206,12 @@ public class Choose
 		}
 	}
 	
-	public static void day3()
+	public static void day3()						//User chooses to search for vehicle, weapon, or food
 	{
 		String[] vehicleWeaponFood = {"Look for A Vehicle", "Look for A Weapon", "Look for Extra Food"};
 		String[] vehicleSearch = {"Hotwire", "Search"};
 		
-		variable = JOptionPane.showOptionDialog(null, "You decide to spend the day preparing for the final day before help arrives.\nHow do you spend it?."  
+		variable = JOptionPane.showOptionDialog(null, "You decide to spend the day preparing for when help arrives.\nHow do you spend it?."  
 				+ "\nStats:\nFood: " + food + "\nWeapons: " + weapon + "\nVehicles: " + vehicle, "Preparations", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
 				null, vehicleWeaponFood, vehicleWeaponFood[0]);
 		if(variable == 0)
@@ -270,7 +271,7 @@ public class Choose
 		}
 	}
 	
-	public static void beginDay4()
+	public static void beginDay4()					//Determines food, then begins day 4 choices
 	{
 		if(Determine.survivors(survivors))
 		{
@@ -291,7 +292,7 @@ public class Choose
 		}
 	}
 	
-	public static void day4()
+	public static void day4()						//User chooses to search/wait for help, Choice outcomes depend on earnings previously gained
 	{
 		String[] searchHelp = {"Search", "Wait"};
 		
@@ -302,7 +303,7 @@ public class Choose
 		{
 			if(Determine.vehicle(vehicle))
 			{
-				JOptionPane.showMessageDialog(null, "You spend hours driving around. Around noon, you hear a whirring in the air.\nYou look up, only to see a helicopter in the distance."
+				JOptionPane.showMessageDialog(null, "You spend hours driving around. Around noon, you hear a whirring in the air.\nYou look up, to see a helicopter in the distance."
 						+ " Help has arrived.", null, JOptionPane.INFORMATION_MESSAGE);
 				JOptionPane.showMessageDialog(null, "You win!", null, JOptionPane.INFORMATION_MESSAGE);
 			}
@@ -311,8 +312,8 @@ public class Choose
 				fightOrFlee();
 				if(firstClass.death == false)
 				{
-					JOptionPane.showMessageDialog(null, "Once the battle is over you here a helicopter in the distance. "
-							+ "You look up, and finally see help arrive.", null, JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Once the battle is over you here a helicopter in the distance."
+							+ "\nYou look up, and finally see help arrive.", null, JOptionPane.INFORMATION_MESSAGE);
 					JOptionPane.showMessageDialog(null, "You win!", null, JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
@@ -330,7 +331,7 @@ public class Choose
 			{
 				if(Random.getFood())
 				{
-					JOptionPane.showMessageDialog(null, "You wait at base for hours upon hours.\nLittle hope is left, once you see the sun setting!"
+					JOptionPane.showMessageDialog(null, "You wait at base for hours upon hours.\nLittle hope is left, once you see the sun setting."
 							+ "\nFinally, a helicopter can be heard in the distance. Help has arrived.", null, JOptionPane.INFORMATION_MESSAGE);
 					JOptionPane.showMessageDialog(null, "You win!", null, JOptionPane.INFORMATION_MESSAGE);
 				}
