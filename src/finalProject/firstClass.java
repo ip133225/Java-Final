@@ -21,9 +21,10 @@ public class firstClass
 		
 		do
 		{
-			Choose.food = 0;
+			Choose.food = 1;
 			Choose.weapon = 0;
 			Choose.vehicle = 0;
+			Choose.survivors = 0;
 			death = false;
 			Choose.difficulty();
 			base = Choose.base();

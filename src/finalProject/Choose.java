@@ -24,7 +24,7 @@ public class Choose
 		if(difficulty == 1)
 			random = 50;
 		if(difficulty == 2)
-			random = 25;
+			random = 5;
 	}
 	
 	public static int base()
